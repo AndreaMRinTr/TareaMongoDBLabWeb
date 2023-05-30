@@ -1,0 +1,386 @@
+El portal puede tener N cantidad de usuarios que deben registrarse. Un usuario tiene la siguiente
+información:
+o Nombre completo
+o Avatar (imagen en base64)
+o Username
+o Contraseña
+o Fecha de registro
+o Correo electrónico
+
+
+db.createCollection("usuarios")
+
+
+db.usuarios.insertMany([
+  {
+    nombre: "Andrea Rincon",
+    avatar: "imagen_en_base64_5",
+    username: "usr_5",
+    contrasena: "conejo123",
+    fechaRegistro: new Date(),
+    correo: "andrear@outlook.com"
+  },
+  {
+    nombre: "Angel Castelan",
+    avatar: "imagen_en_base64_2",
+    username: "usr_2",
+    contrasena: "cerebro123",
+    fechaRegistro: new Date(2023, 5, 15, 13, 28, 50),
+    correo: "angelc@outlook.com"
+  },
+  {
+    nombre: "Yised Apolonio",
+    avatar: "imagen_en_base64_3",
+    username: "usr_3",
+    contrasena: "camaleon123",
+    fechaRegistro: new Date(2023, 5, 20, 11, 15, 20),
+    correo: "yiseda@gmail.com"
+  },
+  {
+    nombre: "Daniel Castaneda",
+    avatar: "imagen_en_base64_4",
+    username: "usr_4",
+    contrasena: "abeja123",
+    fechaRegistro: new Date(2023, 5, 25, 15, 44, 40),
+    correo: "danielc@gmail.com"
+  }
+])
+
+
+
+
+
+- Cada usuario puede registrar su colección de videojuegos. Cada documento de MongoDB debe
+tener la siguiente información:
+o Username
+o ID de videojuego de RAWG
+o Nombre del juego
+o Plataforma del juego
+o Comentarios del usuario acerca del videojuego
+
+
+
+
+
+db.createCollection("videojuegos")
+
+db.videojuegos.insertMany([
+  {
+    username: "usr_1",
+    juegoId: "3498",
+    nombreJuego: "Grand Theft Auto V",
+    plataforma: ["PlayStation 5", "Xbox Series S/X", "PlayStation 4", "PC", "PlayStation 3", "Xbox 360", "Xbox One"],
+    comentarios: "muy bueno"
+  },
+  {
+    username: "usr_1",
+    juegoId: "4286",
+    nombreJuego: "BioShock",
+    plataforma: ["PlayStation 3", "macOS", "PC", "Xbox 360"],
+    comentarios: "Interesante!"
+  },
+
+  {
+    username: "usr_1",
+    juegoId: "58175",
+    nombreJuego: "God of War (2018)",
+    plataforma: ["PC", "PlayStation 4"],
+    comentarios: "Divertido!!"
+  },
+  {
+    username: "usr_1",
+    juegoId: "32",
+    nombreJuego: "Destiny 2",
+    plataforma: ["Xbox One", "PC", "PlayStation 4", "Web", "Xbox Series S/X", "PlayStation 5"],
+    comentarios: "Me encanta!"
+  },
+  {
+    username: "usr_2",
+    juegoId: "3498",
+    nombreJuego: "Grand Theft Auto V",
+    plataforma: ["PlayStation 5", "Xbox Series S/X", "PlayStation 4", "PC", "PlayStation 3", "Xbox 360", "Xbox One"],
+    comentarios: "Lo amo!"
+  },
+  {
+    username: "usr_2",
+    juegoId: "3070",
+    nombreJuego: "Fallout 4",
+    plataforma: ["Xbox One", "PC", "PlayStation 4"],
+    comentarios: "Divertido"
+  },
+  {
+    username: "usr_2",
+    juegoId: "32",
+    nombreJuego: "Destiny 2",
+    plataforma: ["Xbox One", "PC", "PlayStation 4", "Web", "Xbox Series S/X", "PlayStation 5"]
+  },
+  {
+    username: "usr_3",
+    juegoId: "2454",
+    nombreJuego: "DOOM (2016)",
+    plataforma: ["Xbox One","PC", "Nintendo Switch", "PlayStation 4"],
+  },
+  {
+    username: "usr_3",
+    juegoId: "3070",
+    nombreJuego: "Fallout 4",
+    plataforma: ["Xbox One", "PC", "PlayStation 4"],
+    comentarios: "Me encanta!"
+  },
+  {
+    username: "usr_3",
+    juegoId: "4286",
+    nombreJuego: "BioShock",
+    plataforma: ["PlayStation 3", "macOS", "PC", "Xbox 360"],
+    comentarios: "Súper"
+  },
+  {
+    username: "usr_4",
+    juegoId: "41494",
+    nombreJuego: "Cyberpunk 2077",
+    plataforma: ["PlayStation 4","PC", "Xbox Series S/X", "PlayStation 5", "Xbox One"],
+    comentarios: "Love it!"
+  },
+  {
+    username: "usr_4",
+    juegoId: "4286",
+    nombreJuego: "BioShock",
+    plataforma: ["PlayStation 3", "macOS", "PC", "Xbox 360"],
+    comentarios: "Mi favorito"
+  },
+   {
+    username: "usr_4",
+    juegoId: "2454",
+    nombreJuego: "DOOM (2016)",
+    plataforma: ["Xbox One","PC", "Nintendo Switch", "PlayStation 4"],
+    comentarios: "Me encanta!"
+  },
+   {
+    username: "usr_5",
+    juegoId: "3070",
+    nombreJuego: "Fallout 4",
+    plataforma: ["Xbox One", "PC", "PlayStation 4"],
+    comentarios: "Fascinante!"
+  },
+   {
+    username: "usr_5",
+    juegoId: "3498",
+    nombreJuego: "Grand Theft Auto V",
+    plataforma: ["PlayStation 5", "Xbox Series S/X", "PlayStation 4", "PC", "PlayStation 3", "Xbox 360", "Xbox One"],
+    comentarios: "Sensacional"
+  }
+
+])
+
+
+
+
+- El portal debe mantener un log de las actividades que los usuarios hagan dentro del portal, como
+registro en el portal, login al portal, logout del portal, agregar un videojuego a su colección, etc.
+Cada registro del log debe tener la siguiente información
+o Username que generó el evento
+o Fecha de evento
+o Evento (texto que describe la actividad realizada por el usuario)
+
+
+
+db.createCollection("logs")
+
+
+
+db.logs.insertMany([
+  {
+    username: "usr_1",
+    fechaEvento: new Date(2023, 5, 20, 10, 30, 0),
+    evento: "Inicio de sesión"
+  },
+  {
+    username: "usr_2",
+    fechaEvento: new Date(2023, 5, 20, 11, 0, 0),
+    evento: "Inicio de sesión"
+  },
+  {
+    username: "usr_3",
+    fechaEvento: new Date(2023, 5, 20, 12, 15, 0),
+    evento: "Inicio de sesión"
+  },
+  {
+    username: "usr_4",
+    fechaEvento: new Date(2023, 5, 20, 13, 30, 0),
+    evento: "Inicio de sesión"
+  },
+  {
+    username: "usr_5",
+    fechaEvento: new Date(2023, 5, 20, 14, 45, 0),
+    evento: "Inicio de sesión"
+  },
+  {
+    username: "usr_1",
+    fechaEvento: new Date(2023, 5, 20, 15, 0, 0),
+    evento: "Cierre de sesión"
+  },
+  {
+    username: "usr_2",
+    fechaEvento: new Date(2023, 5, 20, 16, 30, 0),
+    evento: "Cierre de sesión"
+  },
+  {
+    username: "usr_3",
+    fechaEvento: new Date(2023, 5, 20, 17, 45, 0),
+    evento: "Cierre de sesión"
+  },
+  {
+    username: "usr_4",
+    fechaEvento: new Date(2023, 5, 20, 18, 0, 0),
+    evento: "Cierre de sesión"
+  },
+  {
+    username: "usr_5",
+    fechaEvento: new Date(2023, 5, 20, 19, 15, 0),
+    evento: "Cierre de sesión"
+  }
+])
+
+db.logs.insertMany([
+  {
+    username: "usr_1",
+    fechaEvento: new Date(2023, 5, 20, 11, 15, 20),
+    evento: "Agregó el juego Grand Theft Auto V a su colección"
+  },
+  {
+    username: "usr_1",
+    fechaEvento: new Date(2023, 5, 20, 11, 16, 30),
+    evento: "Agregó el juego BioShock a su colección"
+  },
+  {
+    username: "usr_1",
+    fechaEvento: new Date(2023, 5, 20, 11, 17, 45),
+    evento: "Agregó el juego God of War (2018) a su colección"
+  },
+  {
+    username: "usr_1",
+    fechaEvento: new Date(2023, 5, 20, 11, 19, 0),
+    evento: "Agregó el juego Destiny 2 a su colección"
+  },
+  {
+    username: "usr_2",
+    fechaEvento: new Date(2023, 5, 20, 11, 20, 15),
+    evento: "Agregó el juego Grand Theft Auto V a su colección"
+  },
+  {
+    username: "usr_2",
+    fechaEvento: new Date(2023, 5, 20, 11, 21, 30),
+    evento: "Agregó el juego Fallout 4 a su colección"
+  },
+  {
+    username: "usr_2",
+    fechaEvento: new Date(2023, 5, 20, 11, 22, 45),
+    evento: "Agregó el juego Destiny 2 a su colección"
+  },
+  {
+    username: "usr_3",
+    fechaEvento: new Date(2023, 5, 20, 11, 24, 0),
+    evento: "Agregó el juego DOOM (2016) a su colección"
+  },
+  {
+    username: "usr_3",
+    fechaEvento: new Date(2023, 5, 20, 11, 25, 15),
+    evento: "Agregó el juego Fallout 4 a su colección"
+  },
+  {
+    username: "usr_3",
+    fechaEvento: new Date(2023, 5, 20, 11, 26, 30),
+    evento: "Agregó el juego BioShock a su colección"
+  },
+  {
+    username: "usr_4",
+    fechaEvento: new Date(2023, 5, 20, 11, 27, 45),
+    evento: "Agregó el juego Cyberpunk 2077 a su colección"
+  },
+  {
+    username: "usr_4",
+    fechaEvento: new Date(2023, 5, 20, 11, 29, 0),
+    evento: "Agregó el juego BioShock a su colección"
+  },
+  {
+    username: "usr_4",
+    fechaEvento: new Date(2023, 5, 20, 11, 30, 15),
+    evento: "Agregó el juego DOOM (2016) a su colección"
+  },
+  {
+    username: "usr_5",
+    fechaEvento: new Date(2023, 5, 20, 11, 31, 30),
+    evento: "Agregó el juego Fallout 4 a su colección"
+  },
+  {
+    username: "usr_5",
+    fechaEvento: new Date(2023, 5, 20, 11, 32, 45),
+    evento: "Agregó el juego Grand Theft Auto V a su colección"
+  }
+])
+
+
+3. (30%) Escriba consultas a las colecciones, que generen los siguientes resultados:
+
+- Obtener toda la información de un usuario en base a su correo electrónico.
+
+db.usuarios.findOne({ correo: "andrear@outlook.com" })
+
+
+
+- Obtener toda la información de la colección de videojuegos de un usuario en específico
+
+db.videojuegos.find({ username: "usr_1" })
+
+
+
+- Obtener todos los registros de la colección de videojuegos de un usuario en específico, y que
+correspondan a palabras de búsqueda utilizando el nombre del videojuego.
+
+db.videojuegos.find({ 
+  username: "usr_1",
+  nombreJuego: { $regex: "Grand Theft Auto", $options: "i" } 
+}) 
+**el regrex busca el nombre y el options genera que se busque sin importar si son mayusculas o minúsculas**
+
+
+
+- Obtener todos los registros de la colección de videojuegos de un usuario en específico y de una
+consola en específico.
+
+db.videojuegos.find({ 
+  username: "usr_1",
+  plataforma: "PlayStation 4" 
+})
+
+
+- Obtener todos los eventos del log que correspondan a un usuario en específico.
+
+db.logs.find({ username: "usr_1" })
+
+
+
+- Obtener todos los eventos del log que correspondan a un rango de fechas en específico.
+
+db.logs.find({ 
+  fechaEvento: { 
+    $gte: new Date(2023, 5, 20, 0, 0, 0),
+    $lt: new Date(2023, 5, 21, 0, 0, 0)
+  }
+})
+
+
+
+
+- Obtener todos los eventos del log que correspondan a un usuario en específico y que el evento
+contenga las palabras de búsqueda indicadas.
+
+db.logs.find({ 
+  username: "usr_1",
+  evento: { $regex: "sesión", $options: "i" } 
+})
+
+
+
+
+
